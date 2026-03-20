@@ -20,10 +20,10 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', uptime: process.uptime() })
 })
 app.use('/api/v1/games', gamesRoutes)
-app.use((_req, res) => {
+app.use((req, res) => {
   res.status(404).json({
     status: 'error',
-    message: `Route ${_req.method} ${_req.url} not found`,
+    message: `Route ${req.method} ${req.url} not found`,
   })
 })
 
