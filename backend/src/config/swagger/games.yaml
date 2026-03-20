@@ -1,0 +1,26 @@
+/api/v1/games:
+  get:
+    summary: Get all games
+    tags:
+      - Games
+    responses:
+      200:
+        description: List of all games
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      type:
+                        type: string
+                total:
+                  type: integer
+      500:
+        description: Internal server error
