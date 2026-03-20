@@ -16,6 +16,13 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', uptime: process.uptime() })
 })
 
+app.use((_req, res) => {
+  res.status(404).json({
+    status: 'error',
+    message: `Route ${_req.method} ${_req.url} not found`,
+  })
+})
+
 app.get('/test-error', () => {
   throw new AppError(400, 'Test error works')
 })
