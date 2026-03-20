@@ -5,7 +5,7 @@ export const loggerMiddleware: RequestHandler = (req, res, next): void => {
 
   res.on('finish', () => {
     const duration = Date.now() - start
-    console.log(`${req.method} ${req.url} ${res.statusCode} ${duration}ms`)
+    console.log(`${req.method} ${req.originalUrl} ${res.statusCode} ${duration}ms`)
   })
 
   next()
