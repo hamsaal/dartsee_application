@@ -77,11 +77,11 @@ backend/
 
 ## API Endpoints
 
-| Method | Endpoint      | Description    |
-| ------ | ------------- | -------------- |
-| GET    | /health       | Health check   |
-| GET    | /api/v1/games | List all games |
-| GET    | /api-docs     | Swagger UI     |
+| Method | Endpoint      | Description                                  |
+| ------ | ------------- | -------------------------------------------- |
+| GET    | /health       | Health check                                 |
+| GET    | /api/v1/games | List all games — supports `?page=1&limit=20` |
+| GET    | /api-docs     | Swagger UI                                   |
 
 ---
 
