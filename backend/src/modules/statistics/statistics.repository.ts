@@ -1,16 +1,12 @@
 import { db } from '../../db'
 import { AppError } from '../../middleware/error.middleware'
+import { STATISTICS_QUERIES } from './statistics.queries'
 import type { GameTypeStats } from './statistics.types'
 
 export const getGameTypeStats = async (): Promise<GameTypeStats[]> => {
   try {
-    const { rows } = await db.query<GameTypeStats>(
-      `SELECT g.type, COUNT(DISTINCT g.id) as count
-       FROM games g
-       INNER JOIN game_players gp ON gp.game_id = g.id
-       GROUP BY g.type
-       ORDER BY count DESC`
-    )
+    const { getGameTypeStats: getGameTypeStatsQuery } = STATISTICS_QUERIES
+    const { rows } = await db.query<GameTypeStats>(getGameTypeStatsQuery)
     return rows.map((row) => ({
       type: row.type,
       count: Number(row.count),
