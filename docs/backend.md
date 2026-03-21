@@ -77,14 +77,13 @@ backend/
 
 ## API Endpoints
 
-| Method | Endpoint          | Description                                        |
-| ------ | ----------------- | -------------------------------------------------- |
-| GET    | /health           | Health check                                       |
-| GET    | /api/v1/games     | List all games — supports `?page=1&limit=20`       |
-| GET    | /api/v1/games/:id | Game detail with players, avg score and miss count |
-| GET    | /api-docs         | Swagger UI                                         |
-
----
+| Method | Endpoint                      | Description                                        |
+| ------ | ----------------------------- | -------------------------------------------------- |
+| GET    | /health                       | Health check                                       |
+| GET    | /api/v1/games                 | List all games — supports `?page=1&limit=20`       |
+| GET    | /api/v1/games/:id             | Game detail with players, avg score and miss count |
+| GET    | /api/v1/statistics/game-types | Game type distribution                             |
+| GET    | /api-docs                     | Swagger UI                                         |
 
 ## Architecture
 
