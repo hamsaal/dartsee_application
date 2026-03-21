@@ -7,6 +7,8 @@ import { swaggerSpec } from './config/swagger'
 import { errorMiddleware } from './middleware/error.middleware'
 import { loggerMiddleware } from './middleware/logger.middleware'
 import gamesRoutes from './modules/games/games.routes'
+import statisticsRouter from './modules/statistics/statistics.routes'
+
 const app = express()
 
 app.use(helmet())
@@ -20,6 +22,7 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', uptime: process.uptime() })
 })
 app.use('/api/v1/games', gamesRoutes)
+app.use('/api/v1/statistics', statisticsRouter)
 app.use((req, res) => {
   res.status(404).json({
     status: 'error',
