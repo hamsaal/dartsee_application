@@ -1,8 +1,8 @@
 import { Router } from 'express'
 import { getGamesHandler, getGameDetailHandler } from './games.controller'
 
-const router = Router()
+const gamesrouter = Router()
 
-router.get('/', getGamesHandler)
-router.get('/:id', getGameDetailHandler)
-export default router
+gamesrouter.get('/', getGamesHandler)
+gamesrouter.get('/:id', getGameDetailHandler)
+export default gamesrouter
