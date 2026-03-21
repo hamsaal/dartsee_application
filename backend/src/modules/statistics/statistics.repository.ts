@@ -1,10 +1,10 @@
 import { db } from '../../db'
 import { AppError } from '../../middleware/error.middleware'
-import type { GameTypeReport } from './reports.types'
+import type { GameTypeStats } from './statistics.types'
 
-export const getGameTypeReport = async (): Promise<GameTypeReport[]> => {
+export const getGameTypeStats = async (): Promise<GameTypeStats[]> => {
   try {
-    const { rows } = await db.query<GameTypeReport>(
+    const { rows } = await db.query<GameTypeStats>(
       `SELECT g.type, COUNT(DISTINCT g.id) as count
        FROM games g
        INNER JOIN game_players gp ON gp.game_id = g.id
