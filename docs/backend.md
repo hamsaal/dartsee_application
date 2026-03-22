@@ -46,18 +46,27 @@ backend/
     │   ├── swagger.ts           ← swagger configuration
     │   └── swagger/             ← swagger YAML docs — one file per module
     │       └── games.yaml
+    │       └── statistics.yaml
     ├── db/
     │   └── index.ts             ← PostgreSQL connection pool
     ├── middleware/
     │   ├── error.middleware.ts  ← global error handler + AppError class
     │   └── logger.middleware.ts ← logs every request with method, url, status, duration
     ├── modules/
-    │   └── games/
-    │       ├── games.types.ts      ← TypeScript interfaces
-    │       ├── games.repository.ts ← SQL queries
-    │       ├── games.service.ts    ← business logic
-    │       ├── games.controller.ts ← HTTP handlers
-    │       └── games.routes.ts     ← route definitions
+    │   ├── games/
+    │   │   ├── games.queries.ts    ← SQL query strings
+    │   │   ├── games.types.ts      ← TypeScript interfaces
+    │   │   ├── games.repository.ts ← database queries
+    │   │   ├── games.service.ts    ← business logic
+    │   │   ├── games.controller.ts ← HTTP handlers
+    │   │   └── games.routes.ts     ← route definitions
+    │   └── statistics/
+    │       ├── statistics.queries.ts
+    │       ├── statistics.types.ts
+    │       ├── statistics.repository.ts
+    │       ├── statistics.service.ts
+    │       ├── statistics.controller.ts
+    │       └── statistics.routes.ts
     ├── app.ts                   ← Express app — registers middleware and routes
     └── server.ts                ← entry point — starts the server
 ```

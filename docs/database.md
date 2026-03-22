@@ -87,15 +87,15 @@ docker exec -it dartsee_application-postgres-1 psql -U postgres -d dartsee -c "\
 
 ### throws
 
-| Column    | Type    | Description           |
-| --------- | ------- | --------------------- |
-| id        | integer | Primary key           |
-| game_id   | integer | References games.id   |
-| player_id | text    | References players.id |
-| score     | integer | Score of the throw    |
-| modifier  | integer |
-| x         | integer |
-| y         | integer |
+| Column    | Type    | Description                     |
+| --------- | ------- | ------------------------------- |
+| id        | integer | Primary key                     |
+| game_id   | integer | References games.id             |
+| player_id | text    | References players.id           |
+| score     | integer | Score of the throw              |
+| modifier  | integer | 0 = missed the board completely |
+| x         | integer | X coordinate on the board       |
+| y         | integer | Y coordinate on the board       |
 
 ---
 

@@ -57,7 +57,7 @@ This project uses **pnpm workspaces** — a single repository containing multipl
 
 To run backend or frontend individually refer to their respective documentation:
 
-- [Backend](docs/backend.md) (coming soon)
+- [Backend](docs/backend.md)
 - [Frontend](docs/frontend.md) (coming soon)
 
 ---
@@ -80,7 +80,10 @@ To run backend or frontend individually refer to their respective documentation:
 git clone git@github.com:YOURUSERNAME/dartsee_application.git
 cd dartsee_application
 
-# 2. Copy env file
+# 2. Enable Corepack (ensures correct pnpm version)
+corepack enable
+
+# 3. Copy env file
 cp .env.example .env
 
 ```
@@ -90,10 +93,10 @@ cp .env.example .env
 
 ```bash
 
-# 3. Install dependencies
+# 4. Install dependencies
 pnpm install
 
-# 4. Start all packages in parallel
+# 5. Start all packages in parallel
 pnpm --parallel -r dev
 ```
 
@@ -120,6 +123,8 @@ dartsee_application/
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml   ← Defines monorepo packages
 └── README.md
+├── .node-version         ← Node version
+├── .npmrc                ← engine strict mode
 ```
 
 ---
@@ -163,6 +168,10 @@ pnpm --version  # should be 10.32.1
 
 Husky runs ESLint before every commit. Fix the errors shown in the terminal before committing.
 
-```
+### Wrong pnpm or Node version
 
-```
+The project enforces specific versions. If you get an engine compatibility error:
+
+1. Make sure Corepack is enabled: `corepack enable`
+2. Make sure you're on Node 22+: `node --version`
+3. If using nvm or fnm, run `nvm use` or `fnm use` — it will read `.node-version` automatically
