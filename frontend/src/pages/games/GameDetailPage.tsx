@@ -32,9 +32,9 @@ export default function GameDetailPage() {
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
       <Button onClick={() => navigate('/')} sx={{ mb: 2 }}>
-        ← Back to games
+        Back to games
       </Button>
-      <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
+      <Typography variant="h5" sx={{ mb: 1, fontWeight: 700 }}>
         Game #{data?.id}
       </Typography>
       <Box sx={{ mb: 3 }}>
