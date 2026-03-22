@@ -21,8 +21,11 @@ export default function GameDetailPage() {
   const { id } = useParams()
   const navigate = useNavigate()
   const gameId = parseInt(id ?? '0', 10)
-
   const { data, isLoading, error } = useGameDetail(gameId)
+
+  if (isNaN(gameId) || gameId <= 0) {
+    return <ErrorAlert message="Invalid game ID" />
+  }
   if (isLoading) return <LoadingSpinner />
   if (error) return <ErrorAlert message={error.message} />
 
