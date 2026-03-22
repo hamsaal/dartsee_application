@@ -58,7 +58,7 @@ This project uses **pnpm workspaces** — a single repository containing multipl
 To run backend or frontend individually refer to their respective documentation:
 
 - [Backend](docs/backend.md)
-- [Frontend](docs/frontend.md) (coming soon)
+- [Frontend](docs/frontend.md)
 
 ---
 
