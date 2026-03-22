@@ -5,6 +5,7 @@ import theme from './theme/theme'
 import GamesListPage from './pages/games/GamesListPage'
 import Navbar from './components/NavBar'
 import GameDetailPage from './pages/games/GameDetailPage'
+import NotFoundPage from './pages/NotFound'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/" element={<GamesListPage />} />
             <Route path="/games/:id" element={<GameDetailPage />} />
             <Route path="/statistics" element={<div>Statistics</div>} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
