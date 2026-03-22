@@ -36,23 +36,27 @@ pnpm dev
 
 ```
 frontend/
-├── public/                          ← Static files served by Vite
+├── public/                            ← Static files served by Vite
 ├── src/
 │   ├── api/
-│   │   └── client.ts                ← Fetch wrapper for backend API
+│   │   └── client.ts                  ← Fetch wrapper for backend API
 │   ├── components/
-│   │   └── Navbar.tsx               ← Top navigation bar
+│   │   └── Navbar.tsx                 ← Top navigation bar
 │   ├── pages/
 │   │   ├── games/
-│   │   │   ├── games.types.ts       ← TypeScript interfaces
-│   │   │   ├── games.queries.ts     ← React Query hooks
-│   │   │   ├── GamesListPage.tsx    ← Games list with pagination
-│   │   │   └── GameDetailPage.tsx   ← Game detail with player stats
-│   │   └── NotFoundPage.tsx         ← 404 page
+│   │   │   ├── games.types.ts         ← TypeScript interfaces
+│   │   │   ├── games.queries.ts       ← React Query hooks
+│   │   │   ├── GamesListPage.tsx      ← Games list with pagination
+│   │   │   └── GameDetailPage.tsx     ← Game detail with player stats
+│   │   ├── statistics/
+│   │   │   ├── statistics.types.ts    ← TypeScript interfaces
+│   │   │   ├── statistics.queries.ts  ← React Query hooks
+│   │   │   └── StatisticsPage.tsx     ← Pie chart of game types
+│   │   └── NotFoundPage.tsx           ← 404 page
 │   ├── theme/
-│   │   └── theme.ts                 ← MUI light theme configuration
-│   ├── App.tsx                      ← Providers and routing
-│   └── main.tsx                     ← Entry point
+│   │   └── theme.ts                   ← Custom MUI theme
+│   ├── App.tsx                        ← Providers and routing
+│   └── main.tsx                       ← Entry point
 ├── index.html
 ├── tsconfig.json
 ├── vite.config.ts
@@ -71,6 +75,7 @@ frontend/
 | MUI          | Component library         |
 | React Query  | Data fetching and caching |
 | React Router | Client-side routing       |
+| recharts     | Chart visualization       |
 
 ---
 
