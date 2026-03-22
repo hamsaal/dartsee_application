@@ -9,12 +9,11 @@ import {
   TableHead,
   TableRow,
   Paper,
-  CircularProgress,
-  Alert,
-  Box,
   Button,
 } from '@mui/material'
 import { useGameDetail } from './games.queries'
+import LoadingSpinner from '../../components/LoadingSpinner'
+import ErrorAlert from '../../components/ErrorAlert'
 
 export default function GameDetailPage() {
   const { id } = useParams()
@@ -22,22 +21,8 @@ export default function GameDetailPage() {
   const gameId = parseInt(id ?? '0', 10)
 
   const { data, isLoading, error } = useGameDetail(gameId)
-
-  if (isLoading) {
-    return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 8 }}>
-        <CircularProgress />
-      </Box>
-    )
-  }
-
-  if (error) {
-    return (
-      <Container maxWidth="md" sx={{ py: 4 }}>
-        <Alert severity="error">{error.message}</Alert>
-      </Container>
-    )
-  }
+  if (isLoading) return <LoadingSpinner />
+  if (error) return <ErrorAlert message={error.message} />
 
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>

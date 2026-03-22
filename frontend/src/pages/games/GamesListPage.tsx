@@ -11,10 +11,10 @@ import {
   TableRow,
   Paper,
   TablePagination,
-  CircularProgress,
-  Alert,
 } from '@mui/material'
 import { useGames } from './games.queries'
+import LoadingSpinner from '../../components/LoadingSpinner'
+import ErrorAlert from '../../components/ErrorAlert'
 
 export default function GamesListPage() {
   const [page, setPage] = useState(0)
@@ -23,13 +23,8 @@ export default function GamesListPage() {
 
   const { data, isLoading, error } = useGames(page + 1, rowsPerPage)
 
-  if (isLoading) return <CircularProgress sx={{ m: 4 }} />
-  if (error)
-    return (
-      <Alert severity="error" sx={{ m: 4 }}>
-        {error.message}
-      </Alert>
-    )
+  if (isLoading) return <LoadingSpinner />
+  if (error) return <ErrorAlert message={error.message} />
 
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
