@@ -19,12 +19,18 @@ export default [
     files: ['backend/**/*.ts'],
     languageOptions: {
       globals: { ...globals.node },
+      parserOptions: {
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
   },
   {
     files: ['frontend/**/*.{ts,tsx}'],
     languageOptions: {
       globals: { ...globals.browser },
+      parserOptions: {
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
     plugins: {
       'react-hooks': reactHooks,
