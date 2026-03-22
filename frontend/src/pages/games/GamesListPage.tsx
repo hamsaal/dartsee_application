@@ -33,7 +33,7 @@ export default function GamesListPage() {
         Games
       </Typography>
       <TableContainer component={Paper}>
-        <Table>
+        <Table sx={{ tableLayout: 'fixed' }}>
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
