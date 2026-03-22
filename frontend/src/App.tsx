@@ -3,6 +3,7 @@ import { ThemeProvider, CssBaseline } from '@mui/material'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import theme from './theme/theme'
 import GamesListPage from './pages/games/GamesListPage'
+import Navbar from './components/NavBar'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,6 +21,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <BrowserRouter>
+          <Navbar />
           <Routes>
             <Route path="/" element={<GamesListPage />} />
             <Route path="/games/:id" element={<div>Game Detail</div>} />
