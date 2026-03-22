@@ -5,23 +5,29 @@ import type { GamesListResponse, GameDetail, Player, PlayerRow } from './games.t
 const calculateAvgScorePerRound = (throws: PlayerRow[]): number => {
   if (throws.length === 0) return 0
 
-  const validThrows = throws.filter(t => t.score !== null)
+  const validThrows = throws.filter((t) => t.score !== null)
   if (validThrows.length === 0) return 0
 
   const rounds: number[][] = []
   for (let i = 0; i < validThrows.length; i += 3) {
-    const round = validThrows.slice(i, i + 3).map(t => t.score as number)
-    rounds.push(round)
+    const round = validThrows
+      .slice(i, i + 3)
+      .map((t) => (t.score as number) * (t.modifier as number))
+    if (round.length === 3) {
+      rounds.push(round)
+    }
   }
 
-  const roundTotals = rounds.map(round => round.reduce((sum, score) => sum + score, 0))
+  if (rounds.length === 0) return 0
+
+  const roundTotals = rounds.map((round) => round.reduce((sum, score) => sum + score, 0))
   const avg = roundTotals.reduce((sum, total) => sum + total, 0) / roundTotals.length
 
   return Math.round(avg * 100) / 100
 }
 
 const countMisses = (throws: PlayerRow[]): number => {
-  return throws.filter(t => t.modifier === 0).length
+  return throws.filter((t) => t.modifier === 0).length
 }
 
 const groupByPlayer = (playerRows: PlayerRow[]): Map<string, PlayerRow[]> => {
