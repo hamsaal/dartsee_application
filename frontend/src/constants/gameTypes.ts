@@ -1,0 +1,16 @@
+export const GAME_TYPES = [
+  'x01',
+  'killer',
+  'golf',
+  'cricket',
+  'cannon',
+  'moon',
+  'football',
+  'radar',
+  'conqueror',
+  'shanghai',
+  'expo',
+  'practice',
+  'fight',
+  'beer',
+]

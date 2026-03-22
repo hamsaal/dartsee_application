@@ -3,17 +3,7 @@ import { PieChart, Pie, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { useGameTypeStats } from './statistics.queries'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import ErrorAlert from '../../components/ErrorAlert'
-
-const COLORS = [
-  '#6C3CE1',
-  '#E91E63',
-  '#FF9800',
-  '#4CAF50',
-  '#2196F3',
-  '#FF5722',
-  '#009688',
-  '#795548',
-]
+import { getGameTypeColor } from '../../utils/getGameTypeColor'
 
 export default function StatisticsPage() {
   const { data, isLoading, error } = useGameTypeStats()
@@ -31,9 +21,9 @@ export default function StatisticsPage() {
         <ResponsiveContainer width="100%" height={500}>
           <PieChart>
             <Pie
-              data={data?.map((item, index) => ({
+              data={data?.map((item) => ({
                 ...item,
-                fill: COLORS[index % COLORS.length],
+                fill: getGameTypeColor(item.type),
               }))}
               dataKey="count"
               nameKey="type"

@@ -10,10 +10,12 @@ import {
   TableRow,
   Paper,
   Button,
+  Box,
 } from '@mui/material'
 import { useGameDetail } from './games.queries'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import ErrorAlert from '../../components/ErrorAlert'
+import GameTypeChip from '../../components/GameTypeChip'
 
 export default function GameDetailPage() {
   const { id } = useParams()
@@ -32,9 +34,9 @@ export default function GameDetailPage() {
       <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
         Game #{data?.id}
       </Typography>
-      <Typography variant="body2" sx={{ mb: 3, color: 'text.secondary' }}>
-        Type: {data?.type}
-      </Typography>
+      <Box sx={{ mb: 3 }}>
+        <GameTypeChip type={data?.type ?? ''} />
+      </Box>
       <TableContainer component={Paper} elevation={1}>
         <Table sx={{ tableLayout: 'fixed' }}>
           <TableHead>

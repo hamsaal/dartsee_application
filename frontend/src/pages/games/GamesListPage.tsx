@@ -15,6 +15,7 @@ import {
 import { useGames } from './games.queries'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import ErrorAlert from '../../components/ErrorAlert'
+import GameTypeChip from '../../components/GameTypeChip'
 
 export default function GamesListPage() {
   const [page, setPage] = useState(0)
@@ -48,7 +49,9 @@ export default function GamesListPage() {
                 sx={{ cursor: 'pointer' }}
               >
                 <TableCell>{game.id}</TableCell>
-                <TableCell>{game.type}</TableCell>
+                <TableCell>
+                  <GameTypeChip type={game.type} />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
