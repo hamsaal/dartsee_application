@@ -36,14 +36,23 @@ pnpm dev
 
 ```
 frontend/
-├── public/                   ← Static files served by Vite
+├── public/                          ← Static files served by Vite
 ├── src/
 │   ├── api/
-│   │   └── client.ts         ← Fetch wrapper for backend API
+│   │   └── client.ts                ← Fetch wrapper for backend API
+│   ├── components/
+│   │   └── Navbar.tsx               ← Top navigation bar
+│   ├── pages/
+│   │   ├── games/
+│   │   │   ├── games.types.ts       ← TypeScript interfaces
+│   │   │   ├── games.queries.ts     ← React Query hooks
+│   │   │   ├── GamesListPage.tsx    ← Games list with pagination
+│   │   │   └── GameDetailPage.tsx   ← Game detail with player stats
+│   │   └── NotFoundPage.tsx         ← 404 page
 │   ├── theme/
-│   │   └── theme.ts          ← MUI dark theme configuration
-│   ├── App.tsx                ← Providers and routing
-│   └── main.tsx              ← Entry point
+│   │   └── theme.ts                 ← MUI light theme configuration
+│   ├── App.tsx                      ← Providers and routing
+│   └── main.tsx                     ← Entry point
 ├── index.html
 ├── tsconfig.json
 ├── vite.config.ts
@@ -69,7 +78,7 @@ frontend/
 
 ### Theme
 
-The app uses a custom dark MUI theme with purple accents. Theme configuration is in `src/theme/theme.ts`.
+The app uses a custom MUI theme. Configuration is in `src/theme/theme.ts`.
 
 ### Routing
 
@@ -78,3 +87,4 @@ The app uses a custom dark MUI theme with purple accents. Theme configuration is
 | /           | Games list           |
 | /games/:id  | Game detail          |
 | /statistics | Game type statistics |
+| \*          | 404 page             |
