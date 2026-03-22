@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ThemeProvider, CssBaseline } from '@mui/material'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import theme from './theme/theme'
+import GamesListPage from './pages/games/GamesListPage'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,7 +21,7 @@ export default function App() {
         <CssBaseline />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<div>Games List</div>} />
+            <Route path="/" element={<GamesListPage />} />
             <Route path="/games/:id" element={<div>Game Detail</div>} />
             <Route path="/statistics" element={<div>Statistics</div>} />
           </Routes>
