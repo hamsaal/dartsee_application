@@ -55,6 +55,14 @@ export default function GameDetailPage() {
                 <TableCell>{player.name}</TableCell>
                 <TableCell align="right">{player.avg_score}</TableCell>
                 <TableCell align="right">{player.miss_count}</TableCell>
+                <TableCell align="right">
+                  <Button
+                    size="small"
+                    onClick={() => navigate(`/games/${data?.id}/players/${player.id}/analysis`)}
+                  >
+                    Analysis
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
