@@ -20,7 +20,7 @@ import { groupIntoRounds, calculateStats } from './player-analysis.utils'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import ErrorAlert from '../../components/ErrorAlert'
 import GameTypeChip from '../../components/GameTypeChip'
-import DartBoard from '../../components/DartBoard'
+import DartBoard from '../../components/dartboard/DartBoard'
 
 export default function PlayerAnalysisPage() {
   const { gameId, playerId } = useParams()
@@ -76,6 +76,12 @@ export default function PlayerAnalysisPage() {
                   sx={{ width: 12, height: 12, borderRadius: '50%', backgroundColor: '#E24B4A' }}
                 />
                 <Typography variant="body2">Miss</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                <Box
+                  sx={{ width: 12, height: 12, borderRadius: '50%', backgroundColor: '#FF9800' }}
+                />
+                <Typography variant="body2">Inconsistent</Typography>
               </Box>
             </Box>
           </Paper>
