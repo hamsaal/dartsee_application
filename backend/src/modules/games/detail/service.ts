@@ -1,6 +1,6 @@
-import { getAllGames, getGameById } from './games.repository'
-import { AppError } from '../../middleware/error.middleware'
-import type { GamesListResponse, GameDetail, Player, PlayerRow } from './games.types'
+import { getGameById } from './repository'
+import { AppError } from '../../../middleware/error.middleware'
+import type { GameDetail, Player, PlayerRow } from './types'
 
 const calculateAvgScorePerRound = (throws: PlayerRow[]): number => {
   if (throws.length === 0) return 0
@@ -39,10 +39,6 @@ const groupByPlayer = (playerRows: PlayerRow[]): Map<string, PlayerRow[]> => {
     map.get(row.id)!.push(row)
   }
   return map
-}
-
-export const getGames = async (page: number, limit: number): Promise<GamesListResponse> => {
-  return getAllGames(page, limit)
 }
 
 export const getGameDetail = async (id: number): Promise<GameDetail> => {

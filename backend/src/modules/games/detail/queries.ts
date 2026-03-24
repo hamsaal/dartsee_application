@@ -1,14 +1,4 @@
-export const GAMES_QUERIES = {
-  getAllGames: `
-    SELECT id, type 
-    FROM games 
-    ORDER BY id DESC 
-    LIMIT $1 OFFSET $2
-  `,
-  countGames: `
-    SELECT COUNT(*) as count 
-    FROM games
-  `,
+export const DETAIL_QUERIES = {
   getGameById: `
     SELECT id, type 
     FROM games 

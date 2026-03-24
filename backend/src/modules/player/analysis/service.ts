@@ -1,6 +1,6 @@
-import { getPlayerThrowsByGame } from './player-analysis.repository'
-import { AppError } from '../../middleware/error.middleware'
-import type { PlayerAnalysisResponse } from './player-analysis.types'
+import { getPlayerThrowsByGame } from './repository'
+import { AppError } from '../../../middleware/error.middleware'
+import type { PlayerAnalysisResponse } from './types'
 
 export const getPlayerAnalysis = async (
   gameId: number,

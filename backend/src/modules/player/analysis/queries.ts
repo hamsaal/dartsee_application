@@ -1,4 +1,4 @@
-export const PLAYER_ANALYSIS_QUERIES = {
+export const ANALYSIS_QUERIES = {
   getPlayerThrows: `
     SELECT t.id, t.score, t.modifier, t.x, t.y
     FROM throws t

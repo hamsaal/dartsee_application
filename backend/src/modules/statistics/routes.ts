@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getGameTypesStatsHandler } from './statistics.controller'
+import { getGameTypesStatsHandler } from './game-types/controller'
 
 const statisticsRouter = Router()
 
