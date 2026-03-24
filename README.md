@@ -73,15 +73,7 @@ To run backend or frontend individually refer to their respective documentation:
 - pnpm v10+
 - Docker Desktop
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js v22+
-- pnpm v10+
-- Docker Desktop
-
-Install the prerequisites for your platform below, then return here to complete setup.
+Install the prerequisites for your platform below, then go to setup section to complete local setup
 
 ---
 
@@ -190,14 +182,14 @@ node --version  # should be v22.x.x
 
 ```bash
 # 1. Clone the repo
-git clone git@github.com:YOURUSERNAME/dartsee_application.git
+git clone git@github.com:hamsaal/dartsee_application.git
 cd dartsee_application
 ```
 
 > If you don't have SSH set up, you can clone with HTTPS instead:
 >
 > ```bash
-> git clone https://github.com/YOURUSERNAME/dartsee_application.git
+> git clone https://github.com/hamsaal/dartsee_application.git
 > ```
 
 ```bash
