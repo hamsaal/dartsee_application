@@ -1,6 +1,6 @@
 import type { RequestHandler } from 'express'
-import { getPlayerAnalysis } from './player-analysis.service'
-import { AppError } from '../../middleware/error.middleware'
+import { getPlayerAnalysis } from './service'
+import { AppError } from '../../../middleware/error.middleware'
 
 export const getPlayerAnalysisHandler: RequestHandler = async (req, res) => {
   const gameId = parseInt(req.params.gameId as string)

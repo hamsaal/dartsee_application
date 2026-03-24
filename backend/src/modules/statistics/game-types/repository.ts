@@ -1,11 +1,11 @@
-import { db } from '../../db'
-import { AppError } from '../../middleware/error.middleware'
-import { STATISTICS_QUERIES } from './statistics.queries'
-import type { GameTypeStats } from './statistics.types'
+import { db } from '../../../db'
+import { AppError } from '../../../middleware/error.middleware'
+import { GAME_TYPES_QUERIES } from './queries'
+import type { GameTypeStats } from './types'
 
 export const getGameTypeStats = async (): Promise<GameTypeStats[]> => {
   try {
-    const { getGameTypeStats: getGameTypeStatsQuery } = STATISTICS_QUERIES
+    const { getGameTypeStats: getGameTypeStatsQuery } = GAME_TYPES_QUERIES
     const { rows } = await db.query<GameTypeStats>(getGameTypeStatsQuery)
     return rows.map((row) => ({
       type: row.type,

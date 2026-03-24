@@ -1,14 +1,14 @@
-import { db } from '../../db'
-import { AppError } from '../../middleware/error.middleware'
-import { PLAYER_ANALYSIS_QUERIES } from './player-analysis.queries'
-import type { ThrowData, PlayerInfo, GameInfo } from './player-analysis.types'
+import { db } from '../../../db'
+import { AppError } from '../../../middleware/error.middleware'
+import { ANALYSIS_QUERIES } from './queries'
+import type { ThrowData, PlayerInfo, GameInfo } from './types'
 
 export const getPlayerThrowsByGame = async (
   gameId: number,
   playerId: string
 ): Promise<{ player: PlayerInfo; game: GameInfo; throws: ThrowData[] } | null> => {
   try {
-    const { getGame, getPlayer, getPlayerThrows } = PLAYER_ANALYSIS_QUERIES
+    const { getGame, getPlayer, getPlayerThrows } = ANALYSIS_QUERIES
 
     const game = await db.query<GameInfo>(getGame, [gameId])
     if (!game.rows[0]) return null

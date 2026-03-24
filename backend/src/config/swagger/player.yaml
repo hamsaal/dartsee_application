@@ -1,5 +1,5 @@
 paths:
-  /api/v1/player-analysis/{gameId}/{playerId}:
+  /api/v1/player/analysis/{gameId}/{playerId}:
     get:
       summary: Get player throw data for analysis
       tags:

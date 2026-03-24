@@ -1,4 +1,4 @@
-export const STATISTICS_QUERIES = {
+export const GAME_TYPES_QUERIES = {
   getGameTypeStats: `
     SELECT g.type, COUNT(DISTINCT g.id) as count
     FROM games g
