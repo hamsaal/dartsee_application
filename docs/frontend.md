@@ -36,27 +36,58 @@ pnpm dev
 
 ```
 frontend/
-├── public/                            ← Static files served by Vite
+├── public/                                         ← Static files served by Vite
 ├── src/
 │   ├── api/
-│   │   └── client.ts                  ← Fetch wrapper for backend API
+│   │   └── client.ts                               ← Fetch wrapper for backend API
 │   ├── components/
-│   │   └── Navbar.tsx                 ← Top navigation bar
+│   │   ├── dartboard/
+│   │   │   ├── constants.ts                        ← Board dimensions, colors, legend
+│   │   │   ├── utils.ts                            ← Coordinate scaling and validation
+│   │   │   └── DartBoard.tsx                       ← SVG dartboard with throw positions
+│   │   ├── ErrorAlert.tsx                          ← Shared error display
+│   │   ├── GameTypeChip.tsx                        ← Color-coded game type badge
+│   │   ├── LoadingSpinner.tsx                      ← Shared loading state
+│   │   └── NavBar.tsx                              ← Top navigation bar
+│   ├── config/
+│   │   └── queryClient.ts                          ← React Query configuration
+│   ├── constants/
+│   │   ├── chartColors.ts                          ← Chart color palette
+│   │   ├── gameTypes.ts                            ← Game type definitions
+│   │   └── plotColors.ts                           ← Dartboard plot colors
 │   ├── pages/
-│   │   ├── games/
-│   │   │   ├── games.types.ts         ← TypeScript interfaces
-│   │   │   ├── games.queries.ts       ← React Query hooks
-│   │   │   ├── GamesListPage.tsx      ← Games list with pagination
-│   │   │   └── GameDetailPage.tsx     ← Game detail with player stats
+│   │   ├── games-list/
+│   │   │   ├── types.ts                            ← GamesListResponse
+│   │   │   ├── queries.ts                          ← React Query hook
+│   │   │   └── GamesListPage.tsx                   ← Games list with pagination
+│   │   ├── game-detail/
+│   │   │   ├── types.ts                            ← Player, GameDetail
+│   │   │   ├── queries.ts                          ← React Query hook
+│   │   │   └── GameDetailPage.tsx                  ← Game detail with player stats
 │   │   ├── statistics/
-│   │   │   ├── statistics.types.ts    ← TypeScript interfaces
-│   │   │   ├── statistics.queries.ts  ← React Query hooks
-│   │   │   └── StatisticsPage.tsx     ← Pie chart of game types
-│   │   └── NotFoundPage.tsx           ← 404 page
+│   │   │   ├── types.ts                            ← GameTypeStats
+│   │   │   ├── queries.ts                          ← React Query hook
+│   │   │   └── StatisticsPage.tsx                  ← Pie chart of game types
+│   │   ├── player-analysis/
+│   │   │   ├── components/
+│   │   │   │   ├── ThrowMapSection.tsx             ← Dartboard with throw positions
+│   │   │   │   ├── SummarySection.tsx              ← Player performance stats
+│   │   │   │   └── RoundBreakdownSection.tsx       ← Round-by-round score table
+│   │   │   ├── contants/
+│   │   │   │   └── throwLegends.ts                 ← Throw map legend data
+│   │   │   ├── types.ts                            ← ThrowData, Round, PlayerAnalysisResponse
+│   │   │   ├── queries.ts                          ← React Query hook
+│   │   │   ├── utils.ts                            ← Round grouping and stat calculations
+│   │   │   └── PlayerAnalysisPage.tsx              ← Player analysis view
+│   │   └── NotFound.tsx                            ← 404 page
 │   ├── theme/
-│   │   └── theme.ts                   ← Custom MUI theme
-│   ├── App.tsx                        ← Providers and routing
-│   └── main.tsx                       ← Entry point
+│   │   └── theme.ts                                ← Custom MUI theme
+│   ├── types/
+│   │   └── game.ts                                 ← Shared Game interface
+│   ├── utils/
+│   │   └── getGameTypeColor.ts                     ← Consistent color mapping for game types
+│   ├── App.tsx                                     ← Providers and routing
+│   └── main.tsx                                    ← Entry point
 ├── index.html
 ├── tsconfig.json
 ├── vite.config.ts
@@ -87,9 +118,12 @@ The app uses a custom MUI theme. Configuration is in `src/theme/theme.ts`.
 
 ### Routing
 
-| Path        | View                 |
-| ----------- | -------------------- |
-| /           | Games list           |
-| /games/:id  | Game detail          |
-| /statistics | Game type statistics |
-| \*          | 404 page             |
+| Path                                      | View                 |
+| ----------------------------------------- | -------------------- |
+| /                                         | Games list           |
+| /games/:id                                | Game detail          |
+| /games/:gameId/players/:playerId/analysis | Player analysis      |
+| /statistics                               | Game type statistics |
+| \*                                        | 404 page             |
+
+---
