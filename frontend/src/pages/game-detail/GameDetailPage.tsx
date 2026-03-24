@@ -12,7 +12,7 @@ import {
   Button,
   Box,
 } from '@mui/material'
-import { useGameDetail } from './games.queries'
+import { useGameDetail } from './queries'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import ErrorAlert from '../../components/ErrorAlert'
 import GameTypeChip from '../../components/GameTypeChip'
@@ -47,6 +47,7 @@ export default function GameDetailPage() {
               <TableCell>Player</TableCell>
               <TableCell align="right">Avg Score / Round</TableCell>
               <TableCell align="right">Misses</TableCell>
+              <TableCell align="right"></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

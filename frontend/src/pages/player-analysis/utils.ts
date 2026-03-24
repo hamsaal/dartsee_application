@@ -1,4 +1,4 @@
-import type { ThrowData, Round } from './player-analysis.types'
+import type { ThrowData, Round } from './types'
 
 export const groupIntoRounds = (throws: ThrowData[]): Round[] => {
   const rounds: Round[] = []

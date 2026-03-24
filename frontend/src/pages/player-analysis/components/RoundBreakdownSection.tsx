@@ -10,7 +10,7 @@ import {
   TableRow,
   TablePagination,
 } from '@mui/material'
-import type { Round } from '../player-analysis.types'
+import type { Round } from '../types'
 
 interface RoundBreakdownSectionProps {
   rounds: Round[]

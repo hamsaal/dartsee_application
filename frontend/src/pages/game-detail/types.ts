@@ -1,12 +1,3 @@
-export interface Game {
-  id: number
-  type: string
-}
-
-export interface GamesListResponse {
-  data: Game[]
-  total: number
-}
 export interface Player {
   id: string
   name: string
