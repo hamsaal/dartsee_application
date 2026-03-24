@@ -1,0 +1,24 @@
+paths:
+  /api/v1/statistics/game-types:
+    get:
+      summary: Get game type statistics
+      tags:
+        - Statistics
+      responses:
+        200:
+          description: List of game types with play counts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      example: x01
+                    count:
+                      type: integer
+                      example: 665
+        500:
+          description: Internal server error

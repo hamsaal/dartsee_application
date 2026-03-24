@@ -1,0 +1,62 @@
+paths:
+  /api/v1/player/analysis/{gameId}/{playerId}:
+    get:
+      summary: Get player throw data for analysis
+      tags:
+        - Player
+      parameters:
+        - in: path
+          name: gameId
+          required: true
+          schema:
+            type: integer
+          description: Game ID
+        - in: path
+          name: playerId
+          required: true
+          schema:
+            type: string
+          description: Player ID
+      responses:
+        200:
+          description: Player throw data with coordinates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  player:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                  game:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      type:
+                        type: string
+                  throws:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        score:
+                          type: integer
+                        modifier:
+                          type: integer
+                        x:
+                          type: integer
+                        y:
+                          type: integer
+        400:
+          description: Invalid game ID or player ID
+        404:
+          description: Game or player not found
+        500:
+          description: Internal server error
