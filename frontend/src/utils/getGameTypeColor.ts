@@ -1,4 +1,4 @@
-import { CHART_COLORS } from '../constants/colors'
+import { CHART_COLORS } from '../constants/chartColors'
 import { GAME_TYPES } from '../constants/gameTypes'
 
 export const getGameTypeColor = (type: string): string => {
