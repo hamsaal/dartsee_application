@@ -46,18 +46,7 @@ Then start the database:
 docker compose up -d
 ```
 
-The following 4 tables will be created automatically:
-
-- `games`
-- `players`
-- `game_players`
-- `throws`
-
-### Verify tables loaded
-
-```bash
-docker exec -it dartsee_application-postgres-1 psql -U postgres -d dartsee -c "\dt"
-```
+This starts the PostgreSQL container in the background and begins loading the schema and data automatically. This can take a minute or two depending on your machine — the backend will wait for it to finish before starting.
 
 > Already following the Getting Started guide? You're done here — [click here to go back to setup](../README.md#setup).
 

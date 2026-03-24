@@ -89,10 +89,17 @@ We recommend using [fnm](https://github.com/Schniz/fnm) (Fast Node Manager) to m
 ```bash
 # Install fnm via Homebrew
 brew install fnm
+```
 
-# Add fnm to your shell (add this to ~/.zshrc or ~/.bashrc)
+Add the following line to your `~/.zshrc` (or `~/.bashrc` if using bash):
+
+```bash
 eval "$(fnm env --use-on-cd)"
+```
 
+Then restart your terminal, and run:
+
+```bash
 # Install Node.js v22
 fnm install 22
 fnm use 22
@@ -131,9 +138,9 @@ Open **PowerShell as Administrator** and run:
 wsl --install
 ```
 
-This installs WSL2 and Ubuntu by default. Restart your machine when prompted.
+This installs WSL2 and Ubuntu by default. Restart your machine
 
-After restarting, Ubuntu will launch and ask you to create a Linux username and password.
+After restarting, Ubuntu may open automatically. If it doesn't, open **Ubuntu** from the Start menu. You will be asked to create a Linux username and password — once done, you are already inside the Ubuntu terminal and can continue below.
 
 > If you already have WSL installed and want to confirm you're on version 2:
 >
@@ -147,6 +154,9 @@ After restarting, Ubuntu will launch and ask you to create a Linux username and 
 Open your **Ubuntu** terminal and run:
 
 ```bash
+# Install unzip (required by the fnm installer)
+sudo apt update && sudo apt install -y unzip
+
 # Install fnm
 curl -fsSL https://fnm.vercel.app/install | bash
 
@@ -201,8 +211,7 @@ corepack enable
 > If corepack is not found, run `npm install -g corepack` first, then `corepack enable`.
 
 ```bash
-# 3. Copy env files
-cp .env.example .env
+# 3. Copy backend env file
 cp backend/.env.example backend/.env
 ```
 
@@ -216,10 +225,11 @@ Follow the <a href="docs/database.md#setup">Database Guide setup section</a> and
 # 4. Install dependencies
 pnpm install
 
-
 # 5. Start all packages in parallel
 pnpm dev
 ```
+
+> The backend will automatically wait for the database to be ready. You may see `Waiting for database... (Xs elapsed)` in the terminal for up to a minute while PostgreSQL finishes loading the data — this is normal. Wait until you see `Database connected` and `Server running on port 3000` before opening the app.
 
 Once everything is running, open your browser and navigate to:
 
@@ -228,6 +238,8 @@ Once everything is running, open your browser and navigate to:
 | Frontend | [http://localhost:5173](http://localhost:5173)                   |
 | Backend  | [http://localhost:3000](http://localhost:3000)                   |
 | API Docs | [http://localhost:3000/api-docs](http://localhost:3000/api-docs) |
+
+You are all set. If you run into any issues, refer to the [Troubleshooting](#troubleshooting) section.
 
 ---
 
@@ -333,13 +345,33 @@ The dartboard visualization plots throws with reliable coordinates and transpare
 
 ## Troubleshooting
 
-### Database tables not found
+### Frontend loads but shows no data
 
-The SQL files are loaded automatically on first container start. If tables are missing:
+If the app loads but pages are empty or show a fetch error, the database is likely not set up correctly. Make sure you have followed the [Database Guide](docs/database.md#setup) — both SQL files must be in the `database/` folder and the Docker container must be running.
+
+To confirm the database is fully ready, run Docker without the `-d` flag to watch the logs:
+
+```bash
+docker compose up
+```
+
+Wait until you see:
+
+```
+postgres  | LOG:  database system is ready to accept connections
+```
+
+Then open a new terminal window, navigate to the project root and run:
+
+```bash
+pnpm dev
+```
+
+If data is still missing, reset the container:
 
 ```bash
 docker compose down -v
-docker compose up -d
+docker compose up
 ```
 
 ### pnpm install fails
