@@ -59,6 +59,8 @@ The following 4 tables will be created automatically:
 docker exec -it dartsee_application-postgres-1 psql -U postgres -d dartsee -c "\dt"
 ```
 
+> Already following the Getting Started guide? You're done here — [click here to go back to setup](../README.md#setup).
+
 ---
 
 ## Schema
