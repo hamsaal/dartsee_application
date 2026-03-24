@@ -12,7 +12,7 @@ import {
   Paper,
   TablePagination,
 } from '@mui/material'
-import { useGames } from './games.queries'
+import { useGames } from './queries'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import ErrorAlert from '../../components/ErrorAlert'
 import GameTypeChip from '../../components/GameTypeChip'

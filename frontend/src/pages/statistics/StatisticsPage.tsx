@@ -1,6 +1,6 @@
 import { Container, Typography, Paper } from '@mui/material'
 import { PieChart, Pie, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { useGameTypeStats } from './statistics.queries'
+import { useGameTypeStats } from './queries'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import ErrorAlert from '../../components/ErrorAlert'
 import { getGameTypeColor } from '../../utils/getGameTypeColor'

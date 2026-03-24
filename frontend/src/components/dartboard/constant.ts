@@ -13,10 +13,3 @@ export const SVG_BOARD_RADIUS = (BOARD_RADIUS / GRID_SIZE) * SVG_SIZE
 
 // Standard dartboard segment order (clockwise from top)
 export const SEGMENTS = [20, 1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5]
-
-// Dot colors
-export const COLORS = {
-  hit: '#7C4DFF',
-  miss: '#E24B4A',
-  inconsistent: '#FF9800',
-}

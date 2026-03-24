@@ -1,7 +1,7 @@
 import { Paper, Typography, Box } from '@mui/material'
 import DartBoard from '../../../components/dartboard/DartBoard'
 
-import type { ThrowData } from '../player-analysis.types'
+import type { ThrowData } from '../types'
 import { THROW_LEGEND } from '../contants/throwLegends'
 
 interface ThrowMapSectionProps {

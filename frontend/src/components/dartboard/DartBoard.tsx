@@ -1,7 +1,7 @@
-import type { ThrowData } from '../../pages/player-analysis/player-analysis.types'
+import type { ThrowData } from '../../pages/player-analysis/types'
 
-import { scaleToSvg, isInGrid, getThrowColor } from './dartboard.utils'
-import { SEGMENTS, SVG_BOARD_RADIUS, SVG_CENTER, SVG_SIZE } from './datboard.constants'
+import { scaleToSvg, isInGrid, getThrowColor } from './utils'
+import { SEGMENTS, SVG_BOARD_RADIUS, SVG_CENTER, SVG_SIZE } from './constant'
 
 interface DartBoardProps {
   throws: ThrowData[]

@@ -1,5 +1,5 @@
-import type { ThrowData } from '../../pages/player-analysis/player-analysis.types'
-import { BOARD_CENTER, BOARD_RADIUS, GRID_SIZE, SVG_SIZE } from './datboard.constants'
+import type { ThrowData } from '../../pages/player-analysis/types'
+import { BOARD_CENTER, BOARD_RADIUS, GRID_SIZE, SVG_SIZE } from './constant'
 
 // Scales raw coordinates (0-800) to SVG coordinates (0-500)
 export const scaleToSvg = (val: number): number => (val / GRID_SIZE) * SVG_SIZE
