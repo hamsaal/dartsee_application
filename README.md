@@ -138,20 +138,24 @@ Open **PowerShell as Administrator** and run:
 wsl --install
 ```
 
-This installs WSL2 and Ubuntu by default. Restart your machine
+This installs WSL2 and Ubuntu. Once complete, you will be prompted to create a Linux username and password — fill these in.
 
-After restarting, Ubuntu may open automatically. If it doesn't, open **Ubuntu** from the Start menu. You will be asked to create a Linux username and password — once done, you are already inside the Ubuntu terminal and can continue below.
+Restart your machine then open **Ubuntu** from the Start menu
 
-> If you already have WSL installed and want to confirm you're on version 2:
+<img src="screenshots/image-8.png" alt="Ubuntu in Windows Start menu" width="600">
+
+
+
+ If you already have WSL installed and want to confirm you're on version 2 run the following in the powershell:
 >
 > ```powershell
 > wsl --set-default-version 2
 > wsl -l -v
 > ```
 
-#### 2. Install Node.js inside WSL2
+#### 2. Install Node.js
 
-Open your **Ubuntu** terminal and run:
+Inside the Ubuntu terminal run:
 
 ```bash
 # Install unzip (required by the fnm installer)
@@ -160,7 +164,7 @@ sudo apt update && sudo apt install -y unzip
 # Install fnm
 curl -fsSL https://fnm.vercel.app/install | bash
 
-# Restart the terminal or reload your shell config
+# Reload shell config
 source ~/.bashrc
 
 # Install Node.js v22
@@ -180,9 +184,11 @@ node --version  # should be v22.x.x
 5. Enable integration for your Ubuntu distro (toggle it on).
 6. Click **Apply & Restart**.
 
-> Docker Desktop must be **running** before you complete the next steps
+<img src="screenshots/image-9.png" alt="Docker WSL integration settings" width="600">
 
-> ⚠️ Always work inside the WSL2 filesystem. Working from the Windows drive causes severe performance issues and may cause file-watching tools (like Vite) to not work correctly.
+> Docker Desktop must be **running** before you complete the next steps.
+
+> ⚠️ Always work inside the WSL2 filesystem. Working from the Windows drive causes severe performance issues and may cause file-watching tools like Vite to not work correctly.
 
 </details>
 
@@ -276,21 +282,21 @@ dartsee_application/
 
 Paginated list of all recorded dart games. Clicking a row navigates to the game detail view.
 
-![alt text](screenshots/image.png)
+<img src="screenshots/image.png" alt="Games list showing paginated dart game records" width="700">
 
 ### Game Detail
 
 Shows all players in a game with their average score per round and miss count. Each player has an Analysis button for detailed throw analysis.
 
-![alt text](screenshots/image-1.png)
-![alt text](screenshots/image-2.png)
+<img src="screenshots/image-1.png" alt="Game detail showing player scores and miss counts" width="600">
+<img src="screenshots/image-2.png" alt="Player analysis button on game detail view" width="600">
 
 ### Game Statistics
 
 Pie chart showing the distribution of game types across all recorded games. Colors are consistent with game type chips used throughout the app.
 
-![alt text](screenshots/image-3.png)
-![alt text](screenshots/image-4.png)
+<img src="screenshots/image-3.png" alt="Game statistics pie chart showing distribution of game types" width="700">
+<img src="screenshots/image-4.png" alt="Game type chip legend" width="700">
 
 ### Player Analysis (Bonus)
 
@@ -298,16 +304,16 @@ Detailed analysis of a player's performance in a specific game. Includes three s
 
 **Throw Map** — SVG dartboard visualization plotting where each throw landed using x/y coordinates from the auto-scoring system. Throws are color-coded: purple for hits, red for misses, and orange for inconsistent data where the scoring system and coordinates disagree.
 
-![alt text](screenshots/image-5.png)
+<img src="screenshots/image-5.png" alt="SVG dartboard throw map with colour-coded hits and misses" width="500">
 
 **Summary** — Key performance stats including total throws, total complete rounds, best round, worst round, and miss count.
-![alt text](screenshots/image-6.png)
+
+<img src="screenshots/image-6.png" alt="Player performance summary stats" width="600">
 
 **Round Breakdown** — Paginated table showing each round (group of 3 consecutive throws) with individual throw scores and round totals. Incomplete rounds are displayed but excluded from average calculations.
 
-![alt text](screenshots/image-7.png)
+<img src="screenshots/image-7.png" alt="Round breakdown table with throw scores and totals" width="600">
 
----
 
 ## Data Handling
 
