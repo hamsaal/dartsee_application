@@ -8,12 +8,12 @@ A full-stack web application for visualising dart game statistics collected by D
 
 - [What is this project](#what-is-this-project)
 - [Tech Stack](#tech-stack)
-- [Monorepo Structure](#monorepo-structure)
 - [Getting Started](#getting-started)
+- [Monorepo Structure](#monorepo-structure)
 - [Project Structure](#project-structure)
+- [Supporting Documentation](#supporting-documentation)
 - [Features](#features)
 - [Data Handling](#data-handling)
-- [Documentation](#documentation)
 - [Troubleshooting](#troubleshooting)
 
 ---
@@ -42,28 +42,7 @@ The application allows users to:
 | API Docs | Swagger UI                               |
 | Tooling  | pnpm workspaces, ESLint, Prettier, Husky |
 
----
 
-## Monorepo Structure
-
-This project uses **pnpm workspaces** — a single repository containing multiple packages that share tooling.
-
-### Root level commands
-
-| Command                  | Description                       |
-| ------------------------ | --------------------------------- |
-| `pnpm --parallel -r dev` | Start all packages in parallel    |
-| `pnpm -r build`          | Build all packages                |
-| `pnpm -r test`           | Run tests across all packages     |
-| `pnpm lint`              | Lint all packages                 |
-| `pnpm format`            | Format all packages with Prettier |
-
-To run backend or frontend individually refer to their respective documentation:
-
-- [Backend](docs/backend.md)
-- [Frontend](docs/frontend.md)
-
----
 
 ## Getting Started
 
@@ -249,6 +228,23 @@ You are all set. If you run into any issues, refer to the [Troubleshooting](#tro
 
 ---
 
+## Monorepo Structure
+
+This project uses **pnpm workspaces** — a single repository containing multiple packages that share tooling.
+
+### Root level commands
+
+| Command       | Description                       |
+| ------------- | --------------------------------- |
+| `pnpm dev`    | Start all packages in parallel    |
+| `pnpm build`  | Build all packages                |
+| `pnpm test`   | Run tests across all packages     |
+| `pnpm lint`   | Lint all packages                 |
+| `pnpm format` | Format all packages with Prettier |
+
+---
+---
+
 ## Project Structure
 
 ```
@@ -274,7 +270,16 @@ dartsee_application/
 └── README.md
 ```
 
+
+## Supporting Documentation
+
+- [Backend](docs/backend.md)
+- [Frontend](docs/frontend.md)
+- [Database](docs/database.md) — schema reference
+
 ---
+
+
 
 ## Features
 
@@ -339,15 +344,7 @@ The auto-scoring system provides x/y coordinates on an 800×800 detection grid w
 
 The dartboard visualization plots throws with reliable coordinates and transparently reports throws that could not be mapped.
 
----
 
-## Documentation
-
-- [Backend](docs/backend.md)
-- [Frontend](docs/frontend.md)
-- [Database](docs/database.md) — schema reference
-
----
 
 ## Troubleshooting
 

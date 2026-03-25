@@ -3,7 +3,6 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
 - [Tech Stack](#tech-stack)
 - [Configuration](#configuration)
@@ -15,20 +14,6 @@
 The frontend is a React single-page application built with Vite and TypeScript. It connects to the backend REST API and presents dart game statistics in a visual, easy to navigate interface.
 
 ---
-
-## Getting Started
-
-```bash
-cd frontend
-pnpm install
-pnpm dev
-```
-
-### URLs
-
-| Service  | URL                   |
-| -------- | --------------------- |
-| Frontend | http://localhost:5173 |
 
 ---
 

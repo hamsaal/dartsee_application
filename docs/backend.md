@@ -3,7 +3,6 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
 - [Environment Variables](#environment-variables)
 - [API Endpoints](#api-endpoints)
@@ -16,23 +15,6 @@
 
 The backend is a REST API built with Node.js, Express 5 and TypeScript. It connects to a PostgreSQL database and serves dart game statistics.
 
----
-
-## Getting Started
-
-```bash
-cd backend
-pnpm install
-pnpm dev
-```
-
-### URLs
-
-| Service      | URL                            |
-| ------------ | ------------------------------ |
-| API Root     | http://localhost:3000          |
-| Health Check | http://localhost:3000/health   |
-| Swagger UI   | http://localhost:3000/api-docs |
 
 ---
 
